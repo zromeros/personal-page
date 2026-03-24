@@ -1,0 +1,10 @@
+# No copiar al contexto de build (más rápido, menos basura en la imagen)
+node_modules
+dist
+dist-ssr
+.git
+.gitignore
+*.md
+.env
+.env.*
+.DS_Store
