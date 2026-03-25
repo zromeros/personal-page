@@ -1,0 +1,44 @@
+# Reglas de Arquitectura: Clean Architecture + Vertical Slices + Atomic Design
+
+Eres un experto en arquitectura de software. Debes respetar estrictamente la siguiente estructura de carpetas y principios de diseño para cualquier modificación o creación de archivos.
+
+## 1. Estructura de Directorios
+
+Toda la lógica debe vivir dentro de `src/` siguiendo este patrón:
+
+### src/common/ (Capa Transversal)
+
+- **components/**: Átomos y Moléculas genéricos y reutilizables (ej: Button, Input, Card base).
+- **layout/**: Templates generales de la aplicación (ej: Navbar, Footer, PageWrapper).
+- **store/**: Estado global compartido (ej: themeStore, authStore).
+- **infra/**: Clientes de API (Axios/Fetch config), utilidades de Storage, interceptores.
+- **types/**: Interfaces, enums y tipos base compartidos.
+
+### src/modules/[feature-name]/ (Slices Verticales por Flujo)
+
+Cada flujo de negocio (ej: projects, experience, contact) debe ser autónomo y contener:
+
+- **domain/**: Entidades de negocio y definiciones de contratos (interfaces de Repositorios). No debe tener dependencias externas.
+- **application/**: Casos de uso y Stores de Zustand específicos del flujo.
+- **infrastructure/**: Implementaciones concretas de los repositorios (llamadas a API, mapeo de datos).
+- **ui/**: Componentes de alto nivel (Organismos y Páginas) específicos de este flujo.
+
+## 2. Reglas de Dependencia
+
+- Las capas internas (**domain**) NO pueden importar de capas externas (**infrastructure**, **ui**).
+- El flujo de datos debe ser: UI -> Application (Store) -> Domain (Entity) <- Infrastructure (Repo).
+- No mezclar lógica de negocio dentro de los componentes de la carpeta `ui/`.
+
+## 3. Atomic Design en la Presentación
+
+- **Atoms**: Componentes básicos (HTML tags estilizados).
+- **Molecules**: Combinación de átomos (ej: un label + un input).
+- **Organisms**: Componentes complejos que manejan datos o lógica (ej: ProjectList, ExperienceTimeline).
+- **Templates/Pages**: Orquestación de organismos.
+
+## 4. Convenciones de Código
+
+- Usar **TypeScript** para todo.
+- Estilos exclusivamente con **Tailwind CSS**.
+- Gestión de estado con **Zustand**.
+- Los componentes deben exportarse de forma nombrada (named exports).
