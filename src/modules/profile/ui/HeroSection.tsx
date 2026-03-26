@@ -4,9 +4,17 @@ import type { Profile } from '../domain/profile.entity'
 
 export type HeroSectionProps = {
   profile: Profile
+  eyebrow: string
+  contactCta: string
+  downloadCv: string
 }
 
-export function HeroSection({ profile }: HeroSectionProps) {
+export function HeroSection({
+  profile,
+  eyebrow,
+  contactCta,
+  downloadCv,
+}: HeroSectionProps) {
   const showCv = profile.cvUrl && profile.cvUrl !== '#'
 
   return (
@@ -26,7 +34,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
       </div>
       <div>
         <p className="mb-3 mt-0 text-sm font-medium uppercase tracking-[0.12em] text-[var(--accent)] max-lg:mb-2">
-          Portafolio
+          {eyebrow}
         </p>
         <h1
           id="hero-title"
@@ -42,11 +50,11 @@ export function HeroSection({ profile }: HeroSectionProps) {
         </p>
         <div className="flex flex-wrap gap-3 max-lg:justify-center">
           <Button variant="primary" href="#contacto">
-            Contacto
+            {contactCta}
           </Button>
           {showCv ? (
             <Button variant="ghost" href={profile.cvUrl} target="_blank" rel="noreferrer">
-              Descargar CV
+              {downloadCv}
             </Button>
           ) : null}
         </div>

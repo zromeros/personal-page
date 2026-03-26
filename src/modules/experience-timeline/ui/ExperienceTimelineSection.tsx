@@ -2,10 +2,12 @@ import type { ExperienceEntry } from '../domain/experience.entity'
 
 export type ExperienceTimelineSectionProps = {
   entries: ExperienceEntry[]
+  title: string
 }
 
 export function ExperienceTimelineSection({
   entries,
+  title,
 }: ExperienceTimelineSectionProps) {
   return (
     <section
@@ -17,7 +19,7 @@ export function ExperienceTimelineSection({
         id="experience-title"
         className="mb-8 mt-0 text-2xl font-medium leading-[118%] tracking-tight text-[var(--text-h)] max-lg:text-xl"
       >
-        Experiencia
+        {title}
       </h2>
       <ol className="m-0 flex list-none flex-col gap-6 p-0">
         {entries.map((entry) => (

@@ -2,9 +2,11 @@ import type { Project } from '../domain/project.entity'
 
 export type ProjectCardProps = {
   project: Project
+  demoLabel: string
+  codeLabel: string
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, demoLabel, codeLabel }: ProjectCardProps) {
   return (
     <article className="flex h-full flex-col gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg)] p-6 shadow-none transition-shadow hover:shadow-[var(--shadow)] box-border">
       <h3 className="m-0 text-xl font-semibold text-[var(--text-h)]">
@@ -31,7 +33,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             rel="noreferrer"
             className="border-b border-transparent font-medium text-[var(--accent)] no-underline transition-[border-color] hover:border-[var(--accent)] focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2"
           >
-            Demo
+            {demoLabel}
           </a>
         ) : null}
         {project.repoUrl ? (
@@ -41,7 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             rel="noreferrer"
             className="border-b border-transparent font-medium text-[var(--accent)] no-underline transition-[border-color] hover:border-[var(--accent)] focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2"
           >
-            Código
+            {codeLabel}
           </a>
         ) : null}
       </div>

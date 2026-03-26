@@ -3,9 +3,17 @@ import { socialIconHref } from './socialIcons'
 
 export type ContactSectionProps = {
   social: SocialLink[]
+  title: string
+  hintPrefix: string
+  hintPath: string
 }
 
-export function ContactSection({ social }: ContactSectionProps) {
+export function ContactSection({
+  social,
+  title,
+  hintPrefix,
+  hintPath,
+}: ContactSectionProps) {
   return (
     <section
       id="contacto"
@@ -24,12 +32,12 @@ export function ContactSection({ social }: ContactSectionProps) {
           id="contact-title"
           className="mb-2 mt-0 text-2xl font-medium leading-[118%] tracking-tight text-[var(--text-h)] max-lg:text-xl"
         >
-          Contacto
+          {title}
         </h2>
         <p className="mt-2 text-base leading-[150%] text-[var(--text)]">
-          Redes y correo — sustituye enlaces en{' '}
+          {hintPrefix}{' '}
           <code className="inline-flex rounded px-2 py-1 font-mono text-[15px] leading-[135%] text-[var(--text-h)] bg-[var(--code-bg)]">
-            src/modules/contact/infrastructure/contact.data.ts
+            {hintPath}
           </code>
           .
         </p>
