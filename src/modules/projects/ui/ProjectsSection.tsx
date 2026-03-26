@@ -3,17 +3,9 @@ import { ProjectCard } from './ProjectCard'
 
 export type ProjectsSectionProps = {
   projects: Project[]
-  title: string
-  demoLabel: string
-  codeLabel: string
 }
 
-export function ProjectsSection({
-  projects,
-  title,
-  demoLabel,
-  codeLabel,
-}: ProjectsSectionProps) {
+export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section
       id="proyectos"
@@ -24,16 +16,12 @@ export function ProjectsSection({
         id="projects-title"
         className="mb-5 mt-0 text-2xl font-medium leading-[118%] tracking-tight text-[var(--text-h)] max-lg:text-xl"
       >
-        {title}
+        Proyectos
       </h2>
       <ul className="m-0 grid list-none grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-5 p-0">
         {projects.map((project) => (
           <li key={project.title}>
-            <ProjectCard
-              project={project}
-              demoLabel={demoLabel}
-              codeLabel={codeLabel}
-            />
+            <ProjectCard project={project} />
           </li>
         ))}
       </ul>

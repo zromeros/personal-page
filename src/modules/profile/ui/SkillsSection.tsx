@@ -2,10 +2,9 @@ import { SkillPill } from '../../../common/components/atoms/SkillPill'
 
 export type SkillsSectionProps = {
   skills: string[]
-  title: string
 }
 
-export function SkillsSection({ skills, title }: SkillsSectionProps) {
+export function SkillsSection({ skills }: SkillsSectionProps) {
   return (
     <section
       id="habilidades"
@@ -16,7 +15,7 @@ export function SkillsSection({ skills, title }: SkillsSectionProps) {
         id="skills-title"
         className="mb-5 mt-0 text-2xl font-medium leading-[118%] tracking-tight text-[var(--text-h)] max-lg:text-xl"
       >
-        {title}
+        Habilidades
       </h2>
       <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0">
         {skills.map((skill) => (
