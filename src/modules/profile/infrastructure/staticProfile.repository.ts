@@ -1,7 +1,7 @@
 import type { ProfileRepository } from '../domain/profile.repository'
-import { navItemsContent, profileContent } from './profile.data'
+import { navItemsByLocale, profileByLocale } from './profile.data'
 
 export const staticProfileRepository: ProfileRepository = {
-  getProfile: () => profileContent,
-  getNavItems: () => navItemsContent,
+  getProfile: (locale) => profileByLocale[locale],
+  getNavItems: (locale) => navItemsByLocale[locale],
 }

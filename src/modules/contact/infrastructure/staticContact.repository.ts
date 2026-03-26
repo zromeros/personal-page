@@ -1,6 +1,6 @@
 import type { ContactRepository } from '../domain/contact.repository'
-import { socialLinksContent } from './contact.data'
+import { socialLinksByLocale } from './contact.data'
 
 export const staticContactRepository: ContactRepository = {
-  getSocialLinks: () => socialLinksContent,
+  getSocialLinks: (locale) => socialLinksByLocale[locale],
 }
