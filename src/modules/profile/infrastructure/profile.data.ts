@@ -16,7 +16,7 @@ export const profileByLocale: Record<Locale, Profile> = {
       title: "Sobre mí",
       paragraphs: [
         "Soy desarrollador full stack con experiencia liderando equipos y adaptando requerimientos del cliente a soluciones técnicas sólidas. He trabajado en pagos, educación, IoT y administración interna, siempre con atención a rendimiento, accesibilidad y arquitectura limpia.",
-        "Formación en Ingeniería Electrónica (Universidad Simón Bolívar). Idiomas: español nativo e inglés con buen dominio. Ubicación: Venezuela · contacto: zadkielg.romeros@gmail.com · +58 412 5814511.",
+        "Formación en Ingeniería Electrónica (Universidad Simón Bolívar). Idiomas: español nativo e inglés con buen dominio.",
       ],
     },
 
@@ -48,7 +48,7 @@ export const profileByLocale: Record<Locale, Profile> = {
       title: "About",
       paragraphs: [
         "I am a full stack developer with experience leading teams and turning client requirements into robust technical solutions. I have worked in payments, education, IoT, and internal admin tools, with a focus on performance, accessibility, and clean architecture.",
-        "Background in Electronic Engineering (Universidad Simón Bolívar). Languages: native Spanish and proficient English. Based in Venezuela · zadkielg.romeros@gmail.com · +58 412 5814511.",
+        "Background in Electronic Engineering (Universidad Simón Bolívar). Languages: native Spanish and proficient English.",
       ],
     },
 

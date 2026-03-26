@@ -1,15 +1,14 @@
-import type { ReactNode } from 'react'
-import heroImg from '../../../assets/hero.png'
-import { Button } from '../../../common/components/atoms/Button'
-import type { Profile } from '../domain/profile.entity'
+import type { ReactNode } from "react";
+import { Button } from "../../../common/components/atoms/Button";
+import type { Profile } from "../domain/profile.entity";
 
 export type HeroSectionProps = {
-  profile: Profile
-  eyebrow: string
-  downloadCv: string
-  contactRegionLabel: string
-  contactSlot: ReactNode
-}
+  profile: Profile;
+  eyebrow: string;
+  downloadCv: string;
+  contactRegionLabel: string;
+  contactSlot: ReactNode;
+};
 
 export function HeroSection({
   profile,
@@ -18,7 +17,7 @@ export function HeroSection({
   contactRegionLabel,
   contactSlot,
 }: HeroSectionProps) {
-  const showCv = profile.cvUrl && profile.cvUrl !== '#'
+  const showCv = profile.cvUrl && profile.cvUrl !== "#";
 
   return (
     <section
@@ -27,15 +26,6 @@ export function HeroSection({
       aria-labelledby="hero-title"
     >
       <div className="grid grid-cols-[auto_1fr] items-center gap-10 max-lg:grid-cols-1 max-lg:text-center">
-        <div className="flex justify-center">
-          <img
-            src={heroImg}
-            className="h-auto w-[170px] rounded-xl shadow-[var(--shadow)]"
-            width={170}
-            height={179}
-            alt={profile.avatarAlt}
-          />
-        </div>
         <div>
           <p className="mb-3 mt-0 text-sm font-medium uppercase tracking-[0.12em] text-[var(--accent)] max-lg:mb-2">
             {eyebrow}
@@ -59,7 +49,12 @@ export function HeroSection({
             className="flex flex-wrap items-center gap-3 max-lg:justify-center"
           >
             {showCv ? (
-              <Button variant="ghost" href={profile.cvUrl} target="_blank" rel="noreferrer">
+              <Button
+                variant="ghost"
+                href={profile.cvUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {downloadCv}
               </Button>
             ) : null}
@@ -68,5 +63,5 @@ export function HeroSection({
         </div>
       </div>
     </section>
-  )
+  );
 }
