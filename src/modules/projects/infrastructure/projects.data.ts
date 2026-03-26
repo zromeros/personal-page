@@ -1,5 +1,5 @@
 /**
- * Proyectos por idioma. Edita en projects.data.ts
+ * Proyectos destacados por idioma. Edita en projects.data.ts
  */
 import type { Locale } from '../../../common/types/locale'
 import type { Project } from '../domain/project.entity'
@@ -7,36 +7,42 @@ import type { Project } from '../domain/project.entity'
 export const projectsByLocale: Record<Locale, Project[]> = {
   es: [
     {
-      title: 'Proyecto destacado',
+      title: 'PagoDirecto — pagos y control de acceso',
       description:
-        'Breve descripción del problema, tu rol y el resultado (métricas o aprendizajes).',
-      stack: ['React', 'Vite', 'TypeScript'],
-      demoUrl: 'https://example.com',
-      repoUrl: 'https://github.com',
+        'Solución que combina software y hardware para gestionar peajes, estacionamientos y parquímetros: pasarela de pago unificada con app móvil y comunicación con dispositivos por Bluetooth Low Energy (BLE).',
+      stack: ['React Native', 'Next.js', 'Node.js', 'TypeScript'],
     },
     {
-      title: 'Otro proyecto',
+      title: 'Globalmaps',
       description:
-        'Segundo ejemplo: librería interna, integración o sitio estático con despliegue automático.',
-      stack: ['Node', 'Docker'],
-      repoUrl: 'https://github.com',
+        'Plataforma web educativa con mapas históricos y geográficos a partir de capas SVG: personalización con dibujos, íconos, líneas de tiempo, navegación, usuarios y suscripciones.',
+      stack: ['Next.js', 'Node.js', 'TypeScript', 'MongoDB'],
+    },
+    {
+      title: 'MQTT Modbus Gateway (IoT)',
+      description:
+        'Gateway en ESP32 que une Modbus y MQTT: datos de PLCs a la nube e instrucciones en tiempo real desde un administrador web; payloads JSON sobre MQTT.',
+      stack: ['C', 'MQTT', 'Modbus', 'AWS', 'Embedded'],
     },
   ],
   en: [
     {
-      title: 'Featured project',
+      title: 'PagoDirecto — payments & access control',
       description:
-        'Short description of the problem, your role, and the outcome (metrics or learnings).',
-      stack: ['React', 'Vite', 'TypeScript'],
-      demoUrl: 'https://example.com',
-      repoUrl: 'https://github.com',
+        'Hardware and software solution for tolls, parking, and meters: unified payment gateway with a mobile app and device communication over Bluetooth Low Energy (BLE).',
+      stack: ['React Native', 'Next.js', 'Node.js', 'TypeScript'],
     },
     {
-      title: 'Another project',
+      title: 'Globalmaps',
       description:
-        'Second example: internal library, integration, or static site with automated deploy.',
-      stack: ['Node', 'Docker'],
-      repoUrl: 'https://github.com',
+        'Education web platform for historical and geographic maps from SVG layers: customization, icons, timelines, navigation, users, and subscriptions.',
+      stack: ['Next.js', 'Node.js', 'TypeScript', 'MongoDB'],
+    },
+    {
+      title: 'MQTT Modbus Gateway (IoT)',
+      description:
+        'ESP32 gateway bridging Modbus and MQTT: PLC data to the cloud and real-time commands from a web admin; JSON payloads over MQTT.',
+      stack: ['C', 'MQTT', 'Modbus', 'AWS', 'Embedded'],
     },
   ],
 }
