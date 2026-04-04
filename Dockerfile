@@ -3,7 +3,7 @@
 # =============================================================================
 # Aquí solo necesitamos Node para ejecutar `yarn build`. El resultado es HTML,
 # JS y CSS estáticos; no hace falta Node en producción para servirlos.
-FROM node:22-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
