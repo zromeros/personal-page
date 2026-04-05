@@ -1,5 +1,3 @@
-# Despliega el build de Vite a GitHub Pages (rama gh-pages no hace falta: Actions sube el artefacto).
-# En el repo: Settings → Pages → Build and deployment → Source: GitHub Actions.
 name: Deploy GitHub Pages
 
 on:
@@ -20,10 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v4 # v4 es la versión estable actual más común
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "24" # Aquí ya estás forzando Node 24 para tu código
           cache: yarn
 
       - name: Enable Corepack (Yarn)
@@ -34,12 +33,11 @@ jobs:
 
       - name: Build
         env:
-          # Misma ruta que GitHub Pages para un repo "project site"
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: yarn build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3 # Reajustado a v3 (que es la más estable para Pages)
         with:
           path: dist
 
@@ -48,8 +46,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v5
+        id: deployment
+        uses: actions/deploy-pages@v4 # v4 es la recomendada actualmente
