@@ -30,7 +30,6 @@ export function HomePage() {
 
   const year = new Date().getFullYear();
   const footerLine = `© ${year} ${profile.name}`;
-  const ctaHref = social.find((s) => s.icon === "mail")?.href ?? "#contacto";
 
   return (
     <PageLayout>
@@ -45,8 +44,6 @@ export function HomePage() {
           <HeroSection
             profile={profile}
             eyebrow={ui.heroEyebrow}
-            ctaLabel={ui.heroCta}
-            ctaHref={ctaHref}
             downloadCv={ui.downloadCv}
             chartTitle={ui.heroAreasLabel}
             contactRegionLabel={ui.sectionContact}
