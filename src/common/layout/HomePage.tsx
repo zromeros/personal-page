@@ -36,7 +36,6 @@ export function HomePage() {
     <PageLayout>
       <SkipLink label={ui.skipToContent} />
       <SiteHeader
-        brand={profile.name}
         navItems={navItems}
         navAriaLabel={ui.navAria}
         trailing={<LanguageSwitcher />}
