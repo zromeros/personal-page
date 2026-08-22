@@ -13,7 +13,7 @@ export function AboutSection({ about }: AboutSectionProps) {
     >
       <h2
         id="about-title"
-        className="m-0 text-2xl font-medium leading-[118%] tracking-tight text-[var(--text-h)] max-lg:text-xl"
+        className="m-0 font-[family-name:var(--heading)] text-2xl font-medium leading-[118%] tracking-tight text-[var(--text-h)] max-lg:text-xl"
       >
         {about.title}
       </h2>

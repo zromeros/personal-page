@@ -3,6 +3,18 @@ export type NavItem = {
   label: string
 }
 
+export type SkillGroup = {
+  purpose: string
+  tools: string[]
+}
+
+export type HeroHighlight = {
+  bigNumber: string
+  bigLabel: string
+  stats: { value: string; label: string }[]
+  projectsByArea: { label: string; value: number }[]
+}
+
 export type Profile = {
   name: string
   role: string
@@ -12,6 +24,7 @@ export type Profile = {
     title: string
     paragraphs: string[]
   }
-  skills: string[]
+  skills: SkillGroup[]
+  heroHighlight: HeroHighlight
   cvUrl: string
 }

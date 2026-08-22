@@ -12,23 +12,26 @@ html {
   --orange-innovation: #f97316;
   --slate-bg: #0f172a;
 
-  --bg: var(--slate-bg);
+  --bg: #0a0e14;
+  --panel: #10151d;
+  --header-bg: rgba(10, 14, 20, 0.72);
   --text: var(--gray-logic);
-  --text-h: #e2e8f0;
-  --border: rgba(30, 58, 138, 0.42);
+  --text-h: #f4f6f8;
+  --border: rgba(148, 163, 184, 0.16);
   --code-bg: #1e293b;
   --accent: var(--green-energy);
   --accent-bg: rgba(16, 185, 129, 0.14);
   --accent-border: rgba(16, 185, 129, 0.5);
+  --accent-ink: #06251c;
   --accent-orange: var(--orange-innovation);
   --nav-hover: var(--orange-innovation);
-  --social-bg: rgba(30, 58, 138, 0.22);
+  --social-bg: rgba(148, 163, 184, 0.1);
   --shadow:
     rgba(0, 0, 0, 0.45) 0 14px 28px -10px,
     rgba(15, 23, 42, 0.9) 0 4px 8px -4px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'IBM Plex Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Space Grotesk', system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);

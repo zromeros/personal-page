@@ -1,12 +1,12 @@
 import { useMemo } from 'react'
 import { useLocaleStore } from '../../../common/store/localeStore'
-import { staticProjectsRepository } from '../infrastructure/staticProjects.repository'
+import { staticCapabilityAreaRepository } from '../infrastructure/staticCapabilityArea.repository'
 
-export function useProjectsData() {
+export function useCapabilityAreaData() {
   const locale = useLocaleStore((s) => s.locale)
   return useMemo(
     () => ({
-      projects: staticProjectsRepository.getProjects(locale),
+      areas: staticCapabilityAreaRepository.getAreas(locale),
     }),
     [locale],
   )
