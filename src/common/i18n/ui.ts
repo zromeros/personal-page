@@ -15,6 +15,8 @@ const ui = {
     languageLabel: 'Idioma',
     languageEs: 'ES',
     languageEn: 'EN',
+    viewDiagram: 'Ver diagrama',
+    closeDialog: 'Cerrar',
   },
   en: {
     skipToContent: 'Skip to content',
@@ -29,6 +31,8 @@ const ui = {
     languageLabel: 'Language',
     languageEs: 'ES',
     languageEn: 'EN',
+    viewDiagram: 'View diagram',
+    closeDialog: 'Close',
   },
 } as const
 
