@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
+import { AnimatedNumber } from "../../../common/components/atoms/AnimatedNumber";
 import { Button } from "../../../common/components/atoms/Button";
+import { Reveal } from "../../../common/components/atoms/Reveal";
+import { useInView } from "../../../common/hooks/useInView";
 import type { Profile } from "../domain/profile.entity";
 
 const CHART_HUE_LIGHT = "#6ee7b7";
@@ -45,6 +48,7 @@ export function HeroSection({
   const projectValues = heroHighlight.projectsByArea.map((a) => a.value);
   const maxProjects = Math.max(...projectValues);
   const minProjects = Math.min(...projectValues);
+  const { ref: panelRef, inView: panelInView } = useInView<HTMLDivElement>();
 
   return (
     <section
@@ -53,7 +57,7 @@ export function HeroSection({
       aria-labelledby="hero-title"
     >
       <div className="relative grid grid-cols-[1.35fr_1fr] items-start gap-14 max-lg:grid-cols-1 max-lg:text-center">
-        <div>
+        <Reveal>
           <p className="mb-3 mt-0 text-sm font-medium uppercase tracking-[0.16em] text-[var(--accent)] max-lg:mb-2">
             {eyebrow}
           </p>
@@ -92,12 +96,23 @@ export function HeroSection({
           <div className="mt-5 flex flex-wrap items-center gap-2.5 max-lg:justify-center">
             {contactSlot}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-col gap-6 rounded-[20px] border border-[var(--border)] bg-[var(--panel)] p-8 max-lg:text-left">
+        <div
+          ref={panelRef}
+          className={`flex flex-col gap-6 rounded-[20px] border border-[var(--border)] bg-[var(--panel)] p-8 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none motion-reduce:transform-none max-lg:text-left ${
+            panelInView
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
+          }`}
+        >
           <div>
             <div className="font-[family-name:var(--heading)] text-6xl font-bold leading-none text-[var(--accent)]">
-              {heroHighlight.bigNumber}
+              <AnimatedNumber
+                value={heroHighlight.bigNumber}
+                active={panelInView}
+                duration={1300}
+              />
             </div>
             <p className="mb-0 mt-2 text-[15px] text-[var(--text)]">
               {heroHighlight.bigLabel}
@@ -110,7 +125,11 @@ export function HeroSection({
             {heroHighlight.stats.map((stat) => (
               <div key={stat.label}>
                 <div className="font-[family-name:var(--heading)] text-xl font-bold text-[var(--text-h)]">
-                  {stat.value}
+                  <AnimatedNumber
+                    value={stat.value}
+                    active={panelInView}
+                    duration={1100}
+                  />
                 </div>
                 <p className="mb-0 mt-0.5 text-[12px] leading-[130%] text-[var(--text)]">
                   {stat.label}
@@ -126,12 +145,13 @@ export function HeroSection({
               {chartTitle}
             </p>
             <div className="flex flex-col gap-3">
-              {heroHighlight.projectsByArea.map((area) => {
+              {heroHighlight.projectsByArea.map((area, index) => {
                 const t =
                   maxProjects === minProjects
                     ? 1
                     : (area.value - minProjects) /
                       (maxProjects - minProjects);
+                const targetWidth = `${(area.value / maxProjects) * 100}%`;
                 return (
                   <div
                     key={area.label}
@@ -142,9 +162,10 @@ export function HeroSection({
                     </span>
                     <div className="flex flex-1 items-center">
                       <div
-                        className="h-2.5 min-w-1 rounded-r-[4px] transition-[filter] group-hover:brightness-110"
+                        className="h-2.5 min-w-1 rounded-r-[4px] transition-[width,filter] duration-[900ms] ease-out group-hover:brightness-110 motion-reduce:transition-none"
                         style={{
-                          width: `${(area.value / maxProjects) * 100}%`,
+                          width: panelInView ? targetWidth : "0%",
+                          transitionDelay: `${index * 100}ms`,
                           backgroundColor: lerpColor(
                             CHART_HUE_DARK,
                             CHART_HUE_LIGHT,
@@ -153,7 +174,11 @@ export function HeroSection({
                         }}
                       />
                       <span className="ml-2 font-[family-name:var(--heading)] text-[13px] font-semibold text-[var(--text-h)]">
-                        {area.value}
+                        <AnimatedNumber
+                          value={String(area.value)}
+                          active={panelInView}
+                          duration={1100}
+                        />
                       </span>
                     </div>
                   </div>
