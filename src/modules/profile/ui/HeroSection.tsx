@@ -25,8 +25,6 @@ function lerpColor(hexA: string, hexB: string, t: number) {
 export type HeroSectionProps = {
   profile: Profile;
   eyebrow: string;
-  ctaLabel: string;
-  ctaHref: string;
   downloadCv: string;
   chartTitle: string;
   contactRegionLabel: string;
@@ -36,8 +34,6 @@ export type HeroSectionProps = {
 export function HeroSection({
   profile,
   eyebrow,
-  ctaLabel,
-  ctaHref,
   downloadCv,
   chartTitle,
   contactRegionLabel,
@@ -73,16 +69,13 @@ export function HeroSection({
           <p className="mb-6 mt-0 max-w-xl text-[17px] leading-[160%] text-[var(--text)] max-lg:mx-auto">
             {profile.tagline}
           </p>
-          <div
-            id="contacto"
-            role="region"
-            aria-label={contactRegionLabel}
-            className="flex flex-wrap items-center gap-3 max-lg:justify-center"
-          >
-            <Button variant="primary" href={ctaHref}>
-              {ctaLabel}
-            </Button>
-            {showCv ? (
+          {showCv ? (
+            <div
+              id="contacto"
+              role="region"
+              aria-label={contactRegionLabel}
+              className="flex flex-wrap items-center gap-3 max-lg:justify-center"
+            >
               <Button
                 variant="ghost"
                 href={profile.cvUrl}
@@ -91,8 +84,8 @@ export function HeroSection({
               >
                 {downloadCv}
               </Button>
-            ) : null}
-          </div>
+            </div>
+          ) : null}
           <div className="mt-5 flex flex-wrap items-center gap-2.5 max-lg:justify-center">
             {contactSlot}
           </div>
