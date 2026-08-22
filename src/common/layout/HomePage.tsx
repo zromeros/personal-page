@@ -52,7 +52,12 @@ export function HomePage() {
           <TicksDivider />
           <AboutSection about={profile.about} />
           <TicksDivider />
-          <CapabilityAreasSection areas={areas} title={ui.sectionAreas} />
+          <CapabilityAreasSection
+            areas={areas}
+            title={ui.sectionAreas}
+            viewDiagramLabel={ui.viewDiagram}
+            closeDialogLabel={ui.closeDialog}
+          />
           <TicksDivider />
           <SkillsSection skills={profile.skills} title={ui.sectionSkills} />
         </main>

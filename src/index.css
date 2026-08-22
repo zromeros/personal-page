@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 /* Paleta: Azul técnico · Gris lógico · Verde energía · Naranja innovador · Pizarra */
 :root {
   --blue-tech: #1e3a8a;
